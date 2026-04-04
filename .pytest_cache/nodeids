@@ -1,0 +1,10 @@
+[
+  "tests/test_qcirclab.py::test_bell_counts",
+  "tests/test_qcirclab.py::test_cuccaro_adder_runs",
+  "tests/test_qcirclab.py::test_grover_runs",
+  "tests/test_qcirclab.py::test_hadamard_statevector",
+  "tests/test_qcirclab.py::test_metrics",
+  "tests/test_qcirclab.py::test_mid_circuit_control",
+  "tests/test_qcirclab.py::test_qft_norm",
+  "tests/test_qcirclab.py::test_teleportation_runs"
+]

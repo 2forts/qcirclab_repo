@@ -31,7 +31,7 @@ while advanced topics such as full transpilation, noise toolchains, and real har
 ### Colab
 
 ```python
-!pip install -q git+https://github.com/YOUR_USER/qcirclab.git
+!pip install -q git+https://github.com/2forts/qcirclab.git
 ```
 
 or, from a cloned checkout,

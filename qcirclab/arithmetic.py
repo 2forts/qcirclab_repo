@@ -19,25 +19,39 @@ def unmajority(qc: Circuit, a: int, b: int, c: int) -> None:
 
 
 def cuccaro_adder(n: int) -> Circuit:
-    """In-place ripple-carry adder on registers a, b with carry ancilla.
+    """Cuccaro/CDKM ripple-carry adder without incoming carry.
 
-    Wire layout: a[0..n-1], b[0..n-1], carry.
-    After execution: b <- a + b (mod 2^n), carry stores the overflow bit.
+    Layout, LSB first within registers:
+        a[0..n-1], b[0..n-1], z, c
+
+    Action:
+        |a>|b>|0>|0> -> |a>|(a+b) mod 2^n>|carry>|0>
+
+    Total qubits:
+        2*n + 2
     """
-    qc = Circuit(2 * n + 1, 0, name=f"cuccaro_add_{n}")
+    if n <= 0:
+        raise ValueError("n must be positive")
+
+    qc = Circuit(2 * n + 2, 0, name=f"cuccaro_add_{n}")
+
     a = list(range(n))
     b = list(range(n, 2 * n))
-    c = 2 * n
+    z = 2 * n
+    c = 2 * n + 1
 
-    majority(qc, a[0], b[0], c)
-    for i in range(1, n):
-        majority(qc, a[i], b[i], b[i - 1])
-    qc.cx(a[n - 1], c)
-    for i in reversed(range(1, n)):
-        unmajority(qc, a[i], b[i], b[i - 1])
-    unmajority(qc, a[0], b[0], c)
+    # Forward sweep: propagate carries through the internal carry line c
+    for i in range(n):
+        majority(qc, a[i], b[i], c)
+
+    # Copy final carry-out into z
+    qc.cx(a[n - 1], z)
+
+    # Backward sweep: uncompute carries and write sum into b
+    for i in reversed(range(n)):
+        unmajority(qc, a[i], b[i], c)
+
     return qc
-
 
 
 def controlled_increment(n: int) -> Circuit:

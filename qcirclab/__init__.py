@@ -12,8 +12,11 @@ from .algorithms import (
 )
 from .arithmetic import controlled_increment, cuccaro_adder
 from .core import Circuit, Result
-from .metrics import basic_metrics
-
+from .metrics import (
+    circuit_metrics,
+    print_metrics,
+    basic_metrics
+)
 from .noise import (
     amplitude_damping_kraus,
     apply_kraus_to_qubit,
@@ -24,7 +27,13 @@ from .noise import (
     probabilities_from_density,
     state_to_density,
 )
-from .operators import circuit_unitary, inverse_circuit
+from .operators import (
+    append_operation,
+    circuit_without_measurements,
+    circuit_unitary,
+    equal_up_to_global_phase,
+    inverse_circuit,
+)
 from .viz import (
     counts_from_probs,
     counts_to_probvec,

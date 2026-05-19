@@ -14,6 +14,25 @@ from .arithmetic import controlled_increment, cuccaro_adder
 from .core import Circuit, Result
 from .metrics import basic_metrics
 
+from .noise import (
+    amplitude_damping_kraus,
+    apply_kraus_to_qubit,
+    depolarizing_channel,
+    expectation,
+    fidelity_pure_density,
+    phase_damping_kraus,
+    probabilities_from_density,
+    state_to_density,
+)
+from .operators import circuit_unitary, inverse_circuit
+from .viz import (
+    counts_from_probs,
+    counts_to_probvec,
+    plot_counts,
+    pretty_state,
+    sample_counts_from_statevector,
+)
+
 __all__ = [
     "Circuit",
     "Result",
@@ -30,4 +49,19 @@ __all__ = [
     "variational_layer",
     "cuccaro_adder",
     "controlled_increment",
+    "amplitude_damping_kraus",
+    "apply_kraus_to_qubit",
+    "depolarizing_channel",
+    "expectation",
+    "fidelity_pure_density",
+    "phase_damping_kraus",
+    "probabilities_from_density",
+    "state_to_density",
+    "circuit_unitary",
+    "inverse_circuit",
+    "counts_from_probs",
+    "counts_to_probvec",
+    "plot_counts",
+    "pretty_state",
+    "sample_counts_from_statevector",
 ]

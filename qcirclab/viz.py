@@ -1,7 +1,6 @@
 """Visualization and sampling helpers for qcirclab.
 
-These functions are intentionally small and NumPy-based so they can be used
-in notebooks and textbook examples without depending on external quantum SDKs.
+These functions are NumPy-based.
 """
 
 from __future__ import annotations

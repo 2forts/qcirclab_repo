@@ -6,7 +6,7 @@ from .core import Circuit
 
 
 class CircuitPass(Protocol):
-    """Protocol for minimal educational circuit passes."""
+    """Protocol for circuit passes."""
 
     property_set: dict
 
@@ -15,7 +15,7 @@ class CircuitPass(Protocol):
 
 
 class AnalysisPass:
-    """Minimal analysis pass with a shared property set.
+    """Analysis pass with a shared property set.
 
     Analysis passes inspect a circuit and may store information in
     ``property_set``. They return the input circuit unchanged.
@@ -29,7 +29,7 @@ class AnalysisPass:
 
 
 class TransformationPass:
-    """Minimal transformation pass with a shared property set.
+    """Transformation pass with a shared property set.
 
     Transformation passes return a circuit, which may be the original
     circuit or a transformed copy.
@@ -44,9 +44,6 @@ class TransformationPass:
 
 class PassPipeline:
     """Apply passes sequentially, sharing a single property set.
-
-    This is intentionally small. It is meant for notebook-level
-    optimization examples, not as a full compiler infrastructure.
     """
 
     def __init__(self, passes: Iterable[CircuitPass]) -> None:

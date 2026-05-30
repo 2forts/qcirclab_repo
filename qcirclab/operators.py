@@ -8,10 +8,6 @@ from .core import Circuit
 
 def append_operation(dst: Circuit, op) -> Circuit:
     """Append a stored qcirclab operation to another circuit.
-
-    This is mainly a utility for writing circuit transformations and small
-    compilation passes. It preserves controls and classical conditions when
-    possible.
     """
     if op.name == "barrier":
         dst.barrier()

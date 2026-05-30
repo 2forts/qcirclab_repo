@@ -11,13 +11,13 @@ The library is designed for clarity in teaching and experimentation. Circuits ar
 Install directly from GitHub:
 
 ```bash
-pip install git+https://github.com/2forts/qcirclab.git
+pip install git+https://github.com/2forts/qcirclab_repo.git
 ```
 
 For local development, clone the repository and install it in editable mode:
 
 ```bash
-git clone https://github.com/2forts/qcirclab.git
+git clone https://github.com/2forts/qcirclab_repo.git
 cd qcirclab
 pip install -e .
 ```

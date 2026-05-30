@@ -1,6 +1,6 @@
 # qcirclab
 
-`qcirclab` is a lightweight Python library for building, drawing, simulating, and testing quantum circuits in notebooks.
+`qcirclab` is a lightweight Python library for building, drawing, simulating, and testing quantum circuits.
 
 It was developed as the companion code layer for the quantum circuits book `Quantum Circuit Theory and Design`, written by Francisco Orts. The goal is to make the constructions in the text executable while keeping the examples independent from large external frameworks whose APIs may change over time (and leave printed examples outdated).
 

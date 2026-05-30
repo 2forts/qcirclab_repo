@@ -41,7 +41,7 @@ def test_qft_norm():
 def test_cuccaro_adder_runs():
     adder = cuccaro_adder(2)
     qc = Circuit(adder.n_qubits)
-    qc.initialize_basis("01100")
+    qc.initialize_basis("001100")
     qc.append(adder)
     psi = qc.statevector()
     assert np.isclose(np.linalg.norm(psi), 1.0)
